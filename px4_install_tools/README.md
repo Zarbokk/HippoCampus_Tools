@@ -15,7 +15,7 @@ Installs in catkin/src the apriltags and localization tools
 
 in ~/src/Firmware to start gazebo simulation run:
 ```
-DONT_RUN=1 make px4_sitl_default gazebo_uuv2
+DONT_RUN=1 make px4_sitl_default gazebo_uuv2 
 
 source ~/catkin_ws/devel/setup.bash    # (optional)
 
