@@ -38,6 +38,7 @@ rosinstall_generator mavlink mavros mavros_extras --rosdistro melodic --deps --w
 
 wstool merge -t src melodic-mavros.rosinstall
 wstool update -t src
+catkin build
 
 
 
