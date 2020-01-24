@@ -8,7 +8,7 @@ sudo apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net:80 --recv-key C1CF
 
 sudo apt-get update -y
 
-# sudo apt-get upgrade -y
+sudo apt-get upgrade -y
 
 sudo apt-get install -y python-rosdep python-rosinstall-generator python-wstool python-rosinstall build-essential cmake -y
 
@@ -19,6 +19,7 @@ rosdep update -y
 mkdir -p ~/catkin_ws
 
 cd ~/catkin_ws
+sudo apt-get install -y python-rosdep python-rosinstall-generator python-wstool python-rosinstall build-essential cmake -y
 
 rosinstall_generator ros_comm --rosdistro melodic --deps --wet-only --tar > melodic-ros_comm-wet.rosinstall
 
@@ -28,17 +29,20 @@ rosdep install -y --from-paths src --ignore-src --rosdistro melodic -r --os=debi
 
 
 
-
+sudo apt-get install python-catkin-tools -y
 catkin build
 
 
 echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrc
 source ~/.bashrc
+sudo apt-get install -y python-rosdep python-rosinstall-generator python-wstool python-rosinstall build-essential cmake -y
 
 rosinstall_generator mavlink mavros mavros_extras --rosdistro melodic --deps --wet-only --tar > melodic-mavros.rosinstall 
 
 wstool merge -t src melodic-mavros.rosinstall
 wstool update -t src
+
+sudo apt-get install python-catkin-tools -y
 catkin build
 
 
