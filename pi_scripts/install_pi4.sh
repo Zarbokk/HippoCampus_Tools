@@ -7,7 +7,7 @@ sudo apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net:80 --recv-key C1CF
 
 sudo apt-get update -y
 
-sudo apt-get upgrade -y
+# sudo apt-get upgrade -y
 
 sudo apt-get install -y python-rosdep python-rosinstall-generator python-wstool python-rosinstall build-essential cmake -y
 
