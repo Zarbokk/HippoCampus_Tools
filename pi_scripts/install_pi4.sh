@@ -1,6 +1,11 @@
 echo "PS1='\[\033[1;36m\]\u\[\033[1;31m\]@\[\033[1;32m\]\h:\[\033[1;35m\]\w\[\033[1;31m\]\$\[\033[0m\] '">> ~/.bashrc
+cd ~/Documents
+git clone https://github.com/Kitware/CMake.git
+cd CMake
+./bootstrap && make && sudo make install
+
+
 sudo apt-get update -y
-sudo apt-get install python-catkin-tools -y
 
 sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
 
@@ -10,7 +15,9 @@ sudo apt-get update -y
 
 sudo apt-get upgrade -y
 
-sudo apt-get install -y python-rosdep python-rosinstall-generator python-wstool python-rosinstall build-essential cmake -y
+
+sudo apt-get install python-catkin-tools -y
+sudo apt-get install -y python-rosdep python-rosinstall-generator python-wstool python-rosinstall build-essential -y
 
 
 sudo rosdep init -y
@@ -28,8 +35,9 @@ wstool init src melodic-ros_comm-wet.rosinstall
 rosdep install -y --from-paths src --ignore-src --rosdistro melodic -r --os=debian:buster
 
 
-
 sudo apt-get install python-catkin-tools -y
+sudo apt-get install -y python-rosdep python-rosinstall-generator python-wstool python-rosinstall build-essential -y
+
 catkin build
 
 
@@ -43,6 +51,8 @@ wstool merge -t src melodic-mavros.rosinstall
 wstool update -t src
 
 sudo apt-get install python-catkin-tools -y
+sudo apt-get install -y python-rosdep python-rosinstall-generator python-wstool python-rosinstall build-essential -y
+
 catkin build
 
 
