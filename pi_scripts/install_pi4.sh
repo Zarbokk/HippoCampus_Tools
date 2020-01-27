@@ -33,7 +33,7 @@ mkdir -p ~/catkin_ws
 cd ~/catkin_ws
 #sudo apt-get install -y python-rosdep python-rosinstall-generator python-wstool python-rosinstall build-essential cmake -y
 
-rosinstall_generator ros_comm --rosdistro melodic --deps --wet-only --tar > melodic-ros_comm-wet.rosinstall
+rosinstall_generator ros_comm mavlink mavros mavros_extras --rosdistro melodic --deps --wet-only --tar > melodic-ros_comm-wet.rosinstall
 
 wstool init src melodic-ros_comm-wet.rosinstall
 
@@ -46,19 +46,19 @@ rosdep install -y --from-paths src --ignore-src --rosdistro melodic -r --os=debi
 
 pip install --user future
 sudo apt purge libboost-*
-sudo apt-get install libboost1.62-*
+sudo apt-get install libboost1.62-* -y
 
 
 echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrc
 source ~/.bashrc
 #sudo apt-get install -y python-rosdep python-rosinstall-generator python-wstool python-rosinstall build-essential cmake -y
-rosinstall_generator mavlink mavros mavros_extras --rosdistro melodic --deps --wet-only --tar > melodic-mavros.rosinstall 
+#rosinstall_generator mavlink mavros mavros_extras --rosdistro melodic --deps --wet-only --tar > melodic-mavros.rosinstall 
 
-wstool merge -t src melodic-mavros.rosinstall
-wstool update -t src
+#wstool merge -t src melodic-mavros.rosinstall
+#wstool update -t src
 
-#sudo apt-get install python-catkin-tools -y
-#sudo apt-get install -y python-rosdep python-rosinstall-generator python-wstool python-rosinstall build-essential -y
+sudo apt-get install python-catkin-tools -y
+sudo apt-get install -y python-rosdep python-rosinstall-generator python-wstool python-rosinstall build-essential -y
 
 catkin build
 
