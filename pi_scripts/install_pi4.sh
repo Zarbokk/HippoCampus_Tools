@@ -1,9 +1,12 @@
 echo "PS1='\[\033[1;36m\]\u\[\033[1;31m\]@\[\033[1;32m\]\h:\[\033[1;35m\]\w\[\033[1;31m\]\$\[\033[0m\] '">> ~/.bashrc
+sudo apt update -y
+sudo apt install libssl-dev -y
 cd ~/Documents
 git clone https://github.com/Kitware/CMake.git
 cd CMake
+git checkout v3.10.3
 ./bootstrap && make && sudo make install
-
+#install CMAKE 3.10.3
 
 sudo apt-get update -y
 
@@ -40,13 +43,15 @@ rosdep install -y --from-paths src --ignore-src --rosdistro melodic -r --os=debi
 #sudo apt-get install python-catkin-tools -y
 #sudo apt-get install -y python-rosdep python-rosinstall-generator python-wstool python-rosinstall build-essential -y
 
-catkin build
+
+pip install --user future
+sudo apt purge libboost-*
+sudo apt-get install libboost1.62-*
 
 
 echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrc
 source ~/.bashrc
 #sudo apt-get install -y python-rosdep python-rosinstall-generator python-wstool python-rosinstall build-essential cmake -y
-
 rosinstall_generator mavlink mavros mavros_extras --rosdistro melodic --deps --wet-only --tar > melodic-mavros.rosinstall 
 
 wstool merge -t src melodic-mavros.rosinstall
