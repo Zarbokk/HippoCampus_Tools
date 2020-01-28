@@ -45,7 +45,7 @@ rosdep install -y --from-paths src --ignore-src --rosdistro melodic -r --os=debi
 
 
 pip install --user future
-sudo apt purge libboost-*
+sudo apt purge libboost-* -y
 sudo apt-get install libboost1.62-* -y
 
 
@@ -61,7 +61,7 @@ sudo apt-get install python-catkin-tools -y
 sudo apt-get install -y python-rosdep python-rosinstall-generator python-wstool python-rosinstall build-essential -y
 
 catkin build
-
+source ~/.bashrc
 
 
 
