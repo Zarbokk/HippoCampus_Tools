@@ -33,7 +33,7 @@ mkdir -p ~/catkin_ws
 cd ~/catkin_ws
 #sudo apt-get install -y python-rosdep python-rosinstall-generator python-wstool python-rosinstall build-essential cmake -y
 
-rosinstall_generator ros_comm usb_cam mavlink mavros mavros_extras --rosdistro melodic --deps --wet-only --tar > melodic-ros_comm-wet.rosinstall
+rosinstall_generator ros_comm usb_cam image_proc mavlink mavros mavros_extras --rosdistro melodic --deps --wet-only --tar > melodic-ros_comm-wet.rosinstall
 
 wstool init src melodic-ros_comm-wet.rosinstall
 
