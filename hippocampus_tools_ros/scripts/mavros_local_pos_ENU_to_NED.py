@@ -81,8 +81,7 @@ def main():
 
     rospy.Subscriber("/mavros/local_position/pose", PoseStamped, callback, queue_size=1)
 
-    while not rospy.is_shutdown():
-        pass
+    rospy.spin()
 
 
 if __name__ == '__main__':
