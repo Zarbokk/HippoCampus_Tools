@@ -58,9 +58,9 @@ def callback(msg):
         marker.id = 0
         marker.type = marker.MESH_RESOURCE
         marker.action = marker.ADD
-        marker.scale.x = 1
-        marker.scale.y = 1
-        marker.scale.z = 1
+        marker.scale.x = 0.8
+        marker.scale.y = 0.8
+        marker.scale.z = 0.8
         marker.color.r = 1
         marker.color.a = 1  # transparency
         marker.pose.orientation.w = tmpquat.w
