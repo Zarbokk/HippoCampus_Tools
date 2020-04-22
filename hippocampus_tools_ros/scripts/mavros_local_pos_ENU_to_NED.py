@@ -14,7 +14,7 @@ import matplotlib.pyplot as plt
 publisher_position_boat_NED = rospy.Publisher("/mavros/local_position/pose_NED", PoseStamped, queue_size=1)
 
 rate = None
-rviz=True
+rviz = True
 if rviz:
     publisher_marker = rospy.Publisher('/pose_boat_NED', Marker, queue_size=1)
 
@@ -38,7 +38,7 @@ def callback(msg):
                          y=msg.pose.orientation.y,
                          z=msg.pose.orientation.z)
 
-    tmpquat = qz_90p * qx_180 * tmpquat
+    tmpquat = qz_90p * qx_180 * tmpquat * qx_180
     NED = PoseStamped()
     NED.header = msg.header
     NED.header.frame_id = 'global_tank'
@@ -50,7 +50,6 @@ def callback(msg):
     NED.pose.orientation.y = tmpquat.y
     NED.pose.orientation.z = tmpquat.z
     publisher_position_boat_NED.publish(NED)
-
 
     if rviz:
         marker = Marker()
